@@ -67,12 +67,12 @@ spec:
           protocol: TCP
         resources:
           limits:
-            memory: 32Gi
+            memory: 48Gi
             cpu: "6"
             nvidia.com/gpu: "1"
             ephemeral-storage: 70Gi
           requests:
-            memory: 32Gi
+            memory: 48Gi
             cpu: "6"
             nvidia.com/gpu: "1"
             ephemeral-storage: 70Gi
@@ -83,10 +83,10 @@ spec:
           name: cache-vol
         - mountPath: /home/ubuntu/persistent
           name: root-vol
-        - mountPath: /home/ubuntu/asl/data
-          name: asl-data
-        - mountPath: /home/ubuntu/asl/persistent
-          name: asl-perst
+        # - mountPath: /home/ubuntu/asl/data
+        #   name: asl-data
+        # - mountPath: /home/ubuntu/asl/persistent
+        #   name: asl-perst
       dnsPolicy: None
       dnsConfig:
         nameservers:
@@ -102,12 +102,12 @@ spec:
       - name: root-vol
         persistentVolumeClaim:
           claimName: aria-persistent # Change this to your initials
-      - name: asl-data
-        persistentVolumeClaim:
-          claimName: asl-dataset
-      - name: asl-perst
-        persistentVolumeClaim:
-          claimName: asl-persistent
+      # - name: asl-data
+      #   persistentVolumeClaim:
+      #     claimName: asl-dataset
+      # - name: asl-perst
+      #   persistentVolumeClaim:
+      #     claimName: asl-persistent
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
